@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="Store">
+
+<head>
+    <title>Angular App</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/app.css" />
+</head>
+
+<body>
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+
+    <div class="store" ng-controller="StoreController">
+        <div class="store-item" ng-repeat="product in products | orderBy: '+price'" ng-hide="product.soldOut">
+            <h2>{{ product.name }}</h2>
+            <img class="full" ng-src="{{ product.images.full }}" />
+            <h4>{{ product.price | currency }}</h4>
+            <button ng-show="product.canPurchase">PURCHASE</button>
+
+            <!-- ng-controller="PanelController" -->
+            <section ng-init="tab = 1">
+                <ul class="nav nav-pills">
+                    <li ng-class="{ active: tab === 1 }">
+                        <a href ng-click="tab = 1">Description</a>
+                    </li>
+                    <li ng-class="{ active: tab === 2 }">
+                        <a href ng-click="tab = 2">Specification</a>
+                    </li>
+                    <li ng-class="{ active: tab === 3 }">
+                        <a href ng-click="tab = 3">Reviews</a>
+                    </li>
+                </ul>
+                <div class="panel" ng-show="tab === 1">
+                    <h4>Description</h4>
+                    <p>{{ product.description }}</p>
+                </div>
+                <div class="panel" ng-show="tab === 2">
+                    <h4>Specifications</h4>
+                    <p>None yet</p>
+                </div>
+                <div class="panel" ng-show="tab === 3">
+                    <h4>Reviews</h4>
+                    <p>None yet</p>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+
+</html>
