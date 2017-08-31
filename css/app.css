@@ -87,7 +87,7 @@ ul.nav-pills li.active a {
     color: white;
 }
 
-ul.nav-pills li.active a:focus {
+ul.nav-pills li.active a:focus, ul.nav-pills li.active a:hover {
     background-color: #7b8ae6;
 }
 

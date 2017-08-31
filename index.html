@@ -18,17 +18,16 @@
             <h4>{{ product.price | currency }}</h4>
             <button ng-show="product.canPurchase">PURCHASE</button>
 
-            <!-- ng-controller="PanelController" -->
-            <section ng-init="tab = 1">
+            <section ng-controller="PanelController">
                 <ul class="nav nav-pills">
                     <li ng-class="{ active: tab === 1 }">
-                        <a href ng-click="tab = 1">Description</a>
+                        <a href ng-click="selectTab(1)">Description</a>
                     </li>
                     <li ng-class="{ active: tab === 2 }">
-                        <a href ng-click="tab = 2">Specification</a>
+                        <a href ng-click="selectTab(2)">Specification</a>
                     </li>
                     <li ng-class="{ active: tab === 3 }">
-                        <a href ng-click="tab = 3">Reviews</a>
+                        <a href ng-click="selectTab(3)">Reviews</a>
                     </li>
                 </ul>
                 <div class="panel" ng-show="tab === 1">

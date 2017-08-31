@@ -55,7 +55,11 @@
 
     store.controller('PanelController', [
         '$scope', $scope => {
+            $scope.tab = 1;
 
+            $scope.selectTab = tab => {
+                $scope.tab = tab;
+            }
         }
     ]);
 })();
