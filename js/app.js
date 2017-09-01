@@ -13,6 +13,18 @@
                     },
                     price: 1.95,
                     description: 'A msyterious wonder...',
+                    currentReview: {
+                        stars: 0,
+                        body: "",
+                        author: ""
+                    },
+                    reviews: [
+                        {
+                            stars: 2,
+                            body: "",
+                            author: "Steve"
+                        }
+                    ],
                     soldOut: false,
                     canPurchase: true,
                 },
@@ -24,6 +36,18 @@
                     },
                     price: 10.99,
                     description: 'An average rock.',
+                    currentReview: {
+                        stars: 0,
+                        body: "",
+                        author: ""
+                    },
+                    reviews: [
+                        {
+                            stars: 4,
+                            body: "",
+                            author: "John"
+                        }
+                    ],
                     soldOut: false,
                     canPurchase: true,
                 },
@@ -35,6 +59,18 @@
                     },
                     price: 5.99,
                     description: 'A great gem to own!',
+                    currentReview: {
+                        stars: 0,
+                        body: "",
+                        author: ""
+                    },
+                    reviews: [
+                        {
+                            stars: 5,
+                            body: "",
+                            author: "the Ruby"
+                        }
+                    ],
                     soldOut: false,
                     canPurchase: false,
                 },
@@ -46,6 +82,23 @@
                     },
                     price: 100,
                     description: 'A preciousssssssss stone.',
+                    currentReview: {
+                        stars: 0,
+                        body: "",
+                        author: ""
+                    },
+                    reviews: [
+                        {
+                            stars: 5,
+                            body: "",
+                            author: "Monty"
+                        },
+                        {
+                            stars: 2,
+                            body: "",
+                            author: "PyGuy"
+                        }
+                    ],
                     soldOut: false,
                     canPurchase: true,
                 },

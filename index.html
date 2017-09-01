@@ -38,9 +38,41 @@
                     <h4>Specifications</h4>
                     <p>None yet</p>
                 </div>
-                <div class="panel" ng-show="tab === 3">
+                <div class="panel review" ng-show="tab === 3">
                     <h4>Reviews</h4>
-                    <p>None yet</p>
+                    <form>
+                        <div>
+                            <label>Stars: </label>
+                            <select ng-model="product.reviews.currentReview.stars">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                        <div>
+                            <textarea ng-model="product.reviews.currentReview.body"></textarea>
+                        </div>
+                        <div>
+                            <label>by: </label>
+                            <input type="email" ng-model="product.reviews.currentReview.author" />
+                            <input type="submit" value="SUBMIT" />
+                        </div>
+                    </form>
+
+                    <p class="stars">{{ product.reviews.currentReview.stars }}</p>
+                    <p>{{ product.reviews.currentReview.body }}</p>
+                    <cite>{{ product.reviews.currentReview.author }}</cite>
+
+                    <p ng-show="!product.reviews.length">None yet</p>
+                    <div class="reviews">
+                        <blockquote ng-repeat="review in product.reviews">
+                            <p class="bold stars">Stars: {{ review.stars }}</p>
+                            <p>{{ review.body }}</p>
+                            <cite>by: {{ review.author }}</cite>
+                        </blockquote>
+                    </div>
                 </div>
             </section>
         </div>
