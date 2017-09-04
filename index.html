@@ -2,15 +2,15 @@
 <html ng-app="Store">
 
 <head>
+    <meta charset="utf-8" />
     <title>Angular App</title>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="css/app.css" />
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
 </head>
 
 <body>
-    <script type="text/javascript" src="js/angular.min.js"></script>
-    <script type="text/javascript" src="js/app.js"></script>
-
     <div class="store" ng-controller="StoreController">
         <div class="store-item" ng-repeat="product in products | orderBy: '+price'" ng-hide="product.soldOut">
             <h2>{{ product.name }}</h2>
@@ -38,12 +38,12 @@
                     <h4>Specifications</h4>
                     <p>None yet</p>
                 </div>
-                <div class="panel review" ng-show="tab === 3">
+                <div class="panel review" ng-show="tab === 3" ng-controller="ReviewController">
                     <h4>Reviews</h4>
-                    <form>
+                    <form ng-submit="addReview(product)">
                         <div>
                             <label>Stars: </label>
-                            <select ng-model="product.reviews.currentReview.stars">
+                            <select ng-model="review.stars">
                                 <option>1</option>
                                 <option>2</option>
                                 <option>3</option>
@@ -52,18 +52,18 @@
                             </select>
                         </div>
                         <div>
-                            <textarea ng-model="product.reviews.currentReview.body"></textarea>
+                            <textarea ng-model="review.body"></textarea>
                         </div>
                         <div>
                             <label>by: </label>
-                            <input type="email" ng-model="product.reviews.currentReview.author" />
+                            <input type="email" ng-model="review.author" />
                             <input type="submit" value="SUBMIT" />
                         </div>
                     </form>
 
-                    <p class="stars">{{ product.reviews.currentReview.stars }}</p>
-                    <p>{{ product.reviews.currentReview.body }}</p>
-                    <cite>{{ product.reviews.currentReview.author }}</cite>
+                    <p class="stars">{{ review.stars }}</p>
+                    <p>{{ review.body }}</p>
+                    <cite>{{ review.author }}</cite>
 
                     <p ng-show="!product.reviews.length">None yet</p>
                     <div class="reviews">

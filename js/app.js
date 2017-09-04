@@ -67,7 +67,7 @@
                     reviews: [
                         {
                             stars: 5,
-                            body: "",
+                            body: "Truly wonderful.",
                             author: "the Ruby"
                         }
                     ],
@@ -95,7 +95,7 @@
                         },
                         {
                             stars: 2,
-                            body: "",
+                            body: "It's great!",
                             author: "PyGuy"
                         }
                     ],
@@ -115,4 +115,22 @@
             }
         }
     ]);
+
+    store.controller('ReviewController', [
+        '$scope', $scope => {
+            $scope.review = {
+                stars: '',
+                body: '',
+                author: ''
+            };
+
+            $scope.addReview = product => {
+                product.reviews.push($scope.review);
+                $scope.review = {
+                    stars: '',
+                    body: '',
+                    author: ''
+                };
+            };
+        }]);
 })();
